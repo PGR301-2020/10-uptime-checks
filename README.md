@@ -61,7 +61,15 @@ Sjekk inn .travis.yml etter du har gjort en travis encrypt og push til master. S
 I statuscake har du en "Contact Group" som heter default. Dette er en eller flere personer som blir kontaktet dersom ikke endepunktet svarer med HTTP/200 når statuscake sine servere tester. 
 
 * Forsøk å legge til telefonnumer og epost i Default Contact Group. 
-* Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet. 
+* Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet.
+
+Endre terraform koden ved å legge til en referanse til Default Contact group i testen 
+
+```
+...
+  contact_group = ["Default"]
+...
+```
 
 ## Slack integrasjon 
 
