@@ -63,9 +63,12 @@ I statuscake har du en "Contact Group" som heter default. Dette er en eller fler
 * Forsøk å legge til telefonnumer og epost i Default Contact Group. 
 * Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet. 
 
+## Slack integrasjon 
+
 velg "Integrations" fra hovedmenyen og legg til en Slack Integrasjon. For webhook kan dere bruke følgende Webhook URL
 ```
 https://hooks.slack.com/services/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	
 ```
-Dette sender meldinger til #ops kanalen i PGR301 Slack workspacet vi har opprettet for semesteret. 
+Gå deretter tilbake til Default Contact group og legg til integrasjonen med slack.  Dette vil sende meldinger til #ops kanalen i PGR301 Slack workspacet vi har opprettet for semesteret, dersom tjenesten går ned. 
+
 
