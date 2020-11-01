@@ -23,7 +23,7 @@ provider "statuscake" {
   username = "postglennbechno"
 }
 
-resource "statuscake_test" "google" {
+resource "statuscake_test" "googlecloudruntest" {
   website_name = "My test"
   website_url  = google_cloud_run_service.hello.status[0].url
   test_type    = "HTTP"
@@ -38,6 +38,7 @@ resource "google_cloud_run_service" "hello" {
   location = "us-central1"
   project = var.project_id
 ```
+Her der dere at ressursen av av typen google_cloud_run_service, og heter "hello".
 
 Hvis dere leser i dokumentasjonen til Statuscake sin Terraform provider - https://www.terraform.io/docs/providers/statuscake/index.html
 Ser dere at man i _provder_ HCL blokken kan oppgi både username og apikey. Men, det vet vi *ikke* er smart (!) Så, heldig hvis kan vi også bruke en 
@@ -55,4 +56,16 @@ API nøkkel for statuscake får dere ved å finne en bitteliten "nedoverpil" opp
 
 Sjekk inn .travis.yml etter du har gjort en travis encrypt og push til master. Se at du får en ny sjekk i statuscake. 
 
-##
+## Statuscake contact group
+
+I statuscake har du en "Contact Group" som heter default. Dette er en eller flere personer som blir kontaktet dersom ikke endepunktet svarer med HTTP/200 når statuscake sine servere tester. 
+
+* Forsøk å legge til telefonnumer og epost i Default Contact Group. 
+* Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet. 
+
+velg "Integrations" fra hovedmenyen og legg til en Slack Integrasjon. For webhook kan dere bruke følgende Webhook URL
+```
+https://hooks.slack.com/services/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	
+```
+Dette sender meldinger til #ops kanalen i PGR301 Slack workspacet vi har opprettet for semesteret. 
+
