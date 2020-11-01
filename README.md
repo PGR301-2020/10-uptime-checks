@@ -1,6 +1,6 @@
 #  "Up time checks"
 
-Det er god praksis å bruke verktøy som overvåker applikasjonen "eksternt" og rapporterer i ulike kanaler dersom applikasjonen ikke oppfører seg som forventet, eller feiler. Målet med en slik overvåkning er å oppdage feil *minst* samtidig som brukere. 
+Det er god praksis å bruke verktøy som overvåker applikasjonen "eksternt" og rapporterer i ulike kanaler(epost, slack, telefon) dersom applikasjonen ikke oppfører seg som forventet, eller feiler. Målet med en slik overvåkning er å oppdage feil *minst* samtidig som brukere. 
 
 ## Statuscake
 
@@ -9,6 +9,16 @@ Statuscake er et verktøy for ekstern overvåkning av websider. Det finnes også
 I denne øvingen skal vi bli kjent med Statuscake, fordi dette gir oss en mulighet å bruke en ny "provider" og samtidig til å øve på hemmeligheter i Travis og miljøvariabler. Hvis dere blir ferdig med statuscake øvingen, forsøk gjerne med - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_uptime_check_config
 
 Det første dere må gjøre er å lage en ny konto på statuscake.com
+
+## Statuscake contact group
+
+En Contact group representerer en eller flere personer som blir kontaktet dersom ikke endepunktet svarer med HTTP/200 når statuscake sine servere tester.     
+
+* Lag en ny Contact Group
+* Forsøk å legge til telefonnumer og epost i Default Contact Group. 
+* Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet på telefon eller epost. 
+
+Endre terraform koden ved å legge til en referanse til "statuscake_test"
 
 ## Terraform 
 
@@ -56,14 +66,7 @@ API nøkkel for statuscake får dere ved å finne en bitteliten "nedoverpil" opp
 
 Sjekk inn .travis.yml etter du har gjort en travis encrypt og push til master. Se at du får en ny sjekk i statuscake. 
 
-## Statuscake contact group
-
-I statuscake har du en "Contact Group" som heter default. Dette er en eller flere personer som blir kontaktet dersom ikke endepunktet svarer med HTTP/200 når statuscake sine servere tester. 
-
-* Forsøk å legge til telefonnumer og epost i Default Contact Group. 
-* Deretter Kan du endre terraformkoden, slik at *website_url* ikke finnes. Etter noen minutter skal du da bli kontaktet.
-
-Endre terraform koden ved å legge til en referanse til Default Contact group i Terraform ressursen "statuscake_test" 
+ 
 
 ```
 ...
