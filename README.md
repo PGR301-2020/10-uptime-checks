@@ -48,7 +48,8 @@ resource "google_cloud_run_service" "hello" {
   location = "us-central1"
   project = var.project_id
 ```
-Her der dere at ressursen av av typen google_cloud_run_service, og heter "hello".
+
+I dette eksemplet ser dere at ressursen av av typen google_cloud_run_service, og heter "hello".
 
 Hvis dere leser i dokumentasjonen til Statuscake sin Terraform provider - https://www.terraform.io/docs/providers/statuscake/index.html
 Ser dere at man i _provder_ HCL blokken kan oppgi både username og apikey. Men, det vet vi *ikke* er smart (!) Så, heldig hvis kan vi også bruke en 
@@ -66,8 +67,6 @@ API nøkkel for statuscake får dere ved å finne en bitteliten "nedoverpil" opp
 
 Sjekk inn .travis.yml etter du har gjort en travis encrypt og push til master. Se at du får en ny sjekk i statuscake. 
 
- 
-
 ```
 ...
   contact_group = ["Default"]
@@ -76,10 +75,10 @@ Sjekk inn .travis.yml etter du har gjort en travis encrypt og push til master. S
 
 ## Slack integrasjon 
 
-velg "Integrations" fra hovedmenyen og legg til en Slack Integrasjon. For webhook kan dere bruke følgende Webhook URL
+Velg "Integrations" fra hovedmenyen og legg til en Slack Integrasjon. For webhook kan dere bruke følgende Webhook URL
 ```
 https://hooks.slack.com/services/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	
 ```
-Gå deretter tilbake til Default Contact group og legg til integrasjonen med slack.  Dette vil sende meldinger til #ops kanalen i PGR301 Slack workspacet vi har opprettet for semesteret, dersom tjenesten går ned. 
+Gå deretter tilbake til den contact groupen dere opprettet og legg til integrasjonen med slack.  Dette vil sende meldinger til #ops kanalen i PGR301 Slack workspacet vi har opprettet for semesteret, dersom tjenesten går ned. 
 
 
